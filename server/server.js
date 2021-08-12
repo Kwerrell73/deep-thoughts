@@ -14,8 +14,13 @@ const server = new ApolloServer({
   context: authMiddleware 
 });
 
+const cors = require('cors');
+
+
+
 server.applyMiddleware({ app });
 
+app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
